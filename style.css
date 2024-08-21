@@ -47,8 +47,6 @@ label {
   font-size: 22px;
   font-weight: 700;
   color: #006989;
-
-
 }
 
 input {
@@ -62,30 +60,46 @@ input {
   color: #006989;
 }
 
+img {
+  height: 35px;
+  filter: brightness(0) saturate(100%) invert(24%) sepia(78%) saturate(1684%)
+    hue-rotate(168deg) brightness(94%) contrast(103%);
+}
+
+.btn-paste {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-paste:hover img {
+  filter: brightness(0) saturate(100%) invert(80%) sepia(24%) saturate(6527%) hue-rotate(148deg) brightness(95%) contrast(100%);
+}
+
 input:focus {
   outline: none;
   border: none;
 }
 
-button,
-button::after {
+.btn,
+.btn::after {
   cursor: pointer;
   display: block;
   margin: 0 auto;
   margin-top: 25px;
   padding: 16px 20px;
   font-size: 18px;
-  background: linear-gradient(45deg, transparent 5%, #005C78 5%);
+  background: linear-gradient(45deg, transparent 5%, #005c78 5%);
   border: 0;
   color: #fff;
   letter-spacing: 3px;
   line-height: 1;
-  box-shadow: 6px 0px 0px #F3F7EC;
+  box-shadow: 6px 0px 0px #f3f7ec;
   outline: transparent;
   position: relative;
 }
 
-button::after {
+.btn::after {
   --slice-0: inset(50% 50% 50% 50%);
   --slice-1: inset(80% -6px 0 0);
   --slice-2: inset(50% -6px 30% 0);
@@ -104,13 +118,13 @@ button::after {
     transparent 3%,
     #00e6f6 3%,
     #00e6f6 5%,
-    #005C78 5%
+    #005c78 5%
   );
   text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px #00e6f6;
   clip-path: var(--slice-0);
 }
 
-button:hover::after {
+.btn:hover::after {
   animation: 1s glitch;
   animation-timing-function: steps(2, end);
 }

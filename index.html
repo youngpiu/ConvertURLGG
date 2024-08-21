@@ -2,42 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Convert URL</title>
-    <link
-      rel="stylesheet"
-      href="style.css"
-    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
       <form class="form">
         <div class="row">
           <label for="url1">URL 1:</label>
-          <input
-            type="text"
-            autocomplete="off"
-            id="url1"
-          />
+          <input type="text" autocomplete="off" id="url1" />
+          <button class="btn-paste" type="button" data-target="url1">
+            <img src="./paste.svg" alt="Paste" />
+          </button>
         </div>
         <div class="row">
           <label for="url2">URL 2:</label>
-          <input
-            type="text"
-            id="url2"
-            autocomplete="off"
-          />
+          <input type="text" id="url2" autocomplete="off" />
+          <button class="btn-paste" type="button" data-target="url2">
+            <img src="./paste.svg" alt="Paste" />
+          </button>
         </div>
-        <button
-          class="btn"
-          type="button"
-          disabled
-        >
-          DOWNLOAD
-        </button>
+        <button class="btn" type="button" disabled>DOWNLOAD</button>
       </form>
     </div>
 

@@ -1,6 +1,7 @@
 const btn = document.querySelector(".btn");
 const url1Input = document.getElementById("url1");
 const url2Input = document.getElementById("url2");
+const pasteButtons = document.querySelectorAll(".btn-paste");
 
 const toggleButtonState = () => {
   if (url1Input.value.trim() && url2Input.value.trim()) {
@@ -32,14 +33,31 @@ btn.addEventListener("click", (e) => {
   const newUrl1 = sliceURL(url1);
   const newUrl2 = sliceURL(url2);
 
-  // Mở URL đầu tiên ngay lập tức
   window.open(newUrl1, "_blank");
 
-  // Mở URL thứ hai sau 1 giây
   setTimeout(() => {
     window.open(newUrl2, "_blank");
   }, 500);
-  // Xóa dữ liệu đã nhập vào form
+
   url1Input.value = "";
   url2Input.value = "";
+
+  toggleButtonState();
+});
+
+// Xử lý sự kiện khi nhấn nút Paste
+pasteButtons.forEach((button) => {
+  button.addEventListener("click", async () => {
+    const targetInput = document.getElementById(
+      button.getAttribute("data-target")
+    );
+
+    try {
+      const text = await navigator.clipboard.readText();
+      targetInput.value = text;
+      toggleButtonState();
+    } catch (err) {
+      console.error("Failed to read clipboard contents: ", err);
+    }
+  });
 });
